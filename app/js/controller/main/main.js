@@ -6,50 +6,7 @@
     var myapp = window.myapp;
 
     myapp.controller('mainCtrol', ['$scope', '$window', '$location', '$timeout', function ($scope, $window, $location, $timeout) {
-        /**
-         *
-         * @param options
-         * @returns {HttpPromise}
-         */
-        var query = function(options){
-            return $http(options);
-        };
 
-        /**
-         * @description 获取首页列表数据
-         */
-        var showIndex = function (type, step) {
-        };
-
-        /**
-         * @description 获取人物列表数据
-         */
-        var showPersonList = function (type, step) {
-        };
-
-        /**
-         * @description 获取商品列表数据
-         */
-        var showCommodityList = function (type, step) {
-        };
-
-        /**
-         * @description 获取视频列表数据
-         */
-        var showVedioList = function (type, step) {
-        };
-
-        /**
-         * @description 获取品牌列表数据
-         */
-        var showBrandList = function() {
-        };
-
-        /**
-         * @description 主类型，初始化位首页
-         * @type {string}
-         */
-        //$scope.type = 'index';
 
         /**
          * @description 好友数据
@@ -391,10 +348,92 @@
             }]
         }];
 
+
+
+
+
+        /**
+         *
+         * @param options
+         * @returns {HttpPromise}
+         */
+        var query = function(options){
+            return $http(options);
+        };
+
+        /**
+         * @description 查看首页
+         */
+        $scope.showIndex = function () {
+            $scope.tabType = 'index';
+            $scope.$emit("changeScene", {'step': 1});
+        };
+
+        /**
+         * @description 查看代言人列表
+         */
+        $scope.showPersonList = function () {
+            $scope.tabType = 'person';
+            $scope.$emit("changeScene", {'step': 1});
+        };
+
+        /**
+         * @description 查看商品列表
+         */
+        $scope.showCommodityList = function () {
+            $scope.tabType = 'commodity';
+            $scope.$emit("changeScene", {'step': 1});
+        };
+
+        /**
+         * @description 查看视频列表
+         */
+        $scope.showVedioList = function () {
+            $scope.tabType = 'vedio';
+            $scope.$emit("changeScene", {'step': 1});
+        };
+
+        /**
+         * @description 查看品牌列表
+         * @param brand 品牌参数
+         */
+        $scope.showBrandList = function(brand) {
+            $scope.tabType = 'brand';
+            $scope.$emit("changeScene", {'step': 1});
+        };
+
+        /**
+         * @description 查看购物车
+         */
+        $scope.showShppingCart = function(){
+
+        }
+
+        /**
+         * @description 查看购物车
+         */
+        $scope.showMyTecu = function(){
+
+        }
+
+        /**
+         * @description 查看登陆页
+         */
+        $scope.gotoSignin = function(){
+            $scope.$emit("changeScene", {'step': 7});
+        }
+
+        /**
+         * @description 查看注册页
+         */
+        $scope.gotoSignup = function(){
+            $scope.$emit("changeScene", {'step': 7});
+        }
+
         /**
          * @description 显示选定商品
-         * @param data {commodity: commodity, id: commodity.id}
-         * @param state {'step': 2}
+         * @param data {'commodity': commodity, 'id': commodity.id}
+         * @param state {'entrance': 1}
          */
         $scope.showDetails = function (data, state) {
             var commodityData = {};
@@ -406,17 +445,21 @@
             }
             //
             $scope.commodityData = commodityData;
+            //
+            //保存入口
+            if(state && state.entrance){
+                $scope.entrance = state.entrance;
+            }
             //切换场景
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': 2});
         };
 
 
         /**
          * @description 显示选定代言人
          * @param data {'person': person, 'id': commodity.id}
-         * @param state {'step': 2}
          */
-        $scope.showPerson = function (data, state) {
+        $scope.showPerson = function (data) {
             var personData = {}
             //获取当前商品的数据
             if (data.person) {
@@ -427,35 +470,42 @@
             //
             $scope.personData = _.extend(personData, {"steptitle": "代言人"});
             //切换场景
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': 3});
         }
 
         /**
          * @description 商品详情页
          * @param data {message: '商品详细介绍'}
-         * @param state {'step': 3}
          */
-        $scope.showDetailsInfo = function (data, state) {
+        $scope.showDetailsInfo = function (data) {
             $scope.detailsInfo = data;
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': 4});
         }
 
         /**
          * @description 代言人详情页
          * @param data {message: '代言人详细介绍'}
-         * @param state {'step': 3}
          */
-        $scope.showPersonInfo = function (data, state) {
+        $scope.showPersonInfo = function (data) {
             $scope.detailsInfo = data;
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': 5});
         }
 
         /**
+         *
+         */
+        $scope.goSignIn = function(){
+            $scope.$emit("changeScene", {'step': 7});
+        }
+
+        $scope.goIndex = function(){
+            $scope.$emit("changeScene", {'step': 1});
+        }
+        /**
          * @description 立即购买（下订单）
          * @param data 当前商品信息
-         * @param state {'step': 2}
          */
-        $scope.submitOrder = function(data, state){
+        $scope.submitOrder = function(data){
             if(angular.isObject(data)){
                 $scope.selectDatas = [data];
             }else if(angular.isArray(data)){
@@ -464,7 +514,7 @@
                 return false;
             }
             //
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': 6});
         }
 
         $scope.nowBuy = function(){
@@ -472,10 +522,19 @@
         }
 
         /**
+         * @description 跳到指定场景
+         */
+        $scope.goStep = function (state) {
+            $scope.$emit("changeScene", state);
+
+        }
+
+        /**
          * @description 回退
          */
         $scope.goBack = function (state) {
-            $scope.$emit("changeScene", state);
+            $scope.$emit("changeScene", {'step': state.step});
+
         }
 
         /**
@@ -483,6 +542,7 @@
          * @param data {'step': 1, 'tabType': 'brand'}
          */
         $scope.showRankingList = function (data) {
+            return ;
             //获取对应模块数据
             switch (data.tabType) {
                 case 'index':
@@ -528,19 +588,7 @@
 
         }
 
-        /**
-         * @description 查看购物车
-         */
-        $scope.showShppingCart = function(){
 
-        }
-
-        /**
-         * @description 进入我的太酷
-         */
-        $scope.showMyTecu = function(){
-
-        }
 
         /**
          * @description 切换场景
@@ -556,6 +604,15 @@
         });
 
         /**
+         * @description 切换场景
+         */
+        $scope.getProFileData = function(){
+
+        }
+
+
+
+        /**
          * @description init
          */
         $scope.init = function () {
@@ -564,6 +621,9 @@
             $scope.tabType = 'index';
             //默认二级导航
             $scope.navSate = false;
+            //获取用户信息数据
+            $scope.getProFileData();
+            //
 
         }
         $scope.init();

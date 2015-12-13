@@ -17,7 +17,7 @@
         </header>
         <div class="content w100">
             <!-- banner -->
-            <a ng-if="tabType==='index'||tabType==='brand'" class="banner ovh w100 disb" ng-click="showRankingList({'step': 1, 'tabType': 'brand'})">
+            <a ng-if="tabType==='index'||tabType==='brand'" class="banner ovh w100 disb" ng-click="showBrandList('type')">
                 <img class="w100 disb" ng-src="../app/style/images/banner.png"/>
             </a>
             <!-- 首页 -->
@@ -40,7 +40,7 @@
             <div ng-if="tabType==='brand'" class="panel-list ovh brand">
                 <a class="ovh brand-panel borb1 disb w50 left"
                    ng-repeat="commodity in commodityDatas track by commodity.id"
-                   ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {step: 2})">
+                   ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {'entrance': 1})">
                     <img class="disb w100 ovh" ng-src="{{commodity.src}}">
                     <span class="item-title font14px ovh" ng-bind="commodity.title"></span>
                     <span class="item-price font12px item left w50 clrf153"
@@ -52,7 +52,7 @@
             <!-- 代言人排行榜 -->
             <div ng-if="tabType==='person'" class="panel-list ovh">
                 <div ng-repeat="person in personDatas track by person.id" class="w33 left person-panel borb1"
-                     ng-click="showPerson({'person': person, 'id': person.id}, {'step': 3})">
+                     ng-click="showPerson({'person': person, 'id': person.id})">
                     <img class="w100 disb" ng-src="{{person.src}}">
                     <ul class="clrfff clrf153 ovh">
                         <li class="item-praise font12px left w50" ng-bind="person.praise"></li>
@@ -65,7 +65,7 @@
             <div ng-if="tabType==='commodity'" class="panel-list ovh commodity">
                 <div ng-repeat="commodity in commodityDatas track by commodity.id" class="ovh commodity-panel borb1">
                     <a class="disb w50 left"
-                       ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {step: 2})">
+                       ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {'entrance': 1})">
                         <img class="disb w100 ovh" ng-src="{{commodity.src}}">
                         <span class="item-title font14px ovh" ng-bind="commodity.title"></span>
                         <span class="item-price font12px item left w50 clrf153 fontb"
@@ -90,162 +90,17 @@
 
         </div>
         <footer class="footer bgf15353 clrfff posf">
-            <div class="left cell bot-person w33" ng-click="showRankingList({'step': 1, 'tabType': 'person'})"></div>
-            <div class="left cell bot-cloud w33" ng-click="showRankingList({'step': 1, 'tabType': 'vedio'})"></div>
-            <div class="left cell bot-ranking w33" ng-click="showRankingList({'step': 1, 'tabType': 'commodity'})"></div>
+            <div class="left cell bot-person w33" ng-click="showPersonList()"></div>
+            <!--<div class="left cell bot-cloud w33" ng-click="showVedioList()"></div>-->
+            <div class="left cell bot-cloud w33" ng-click="gotoSignin()"></div>
+            <div class="left cell bot-ranking w33" ng-click="showCommodityList()"></div>
         </footer>
     </div>
-    <!-- 代言人排行榜 -->
-    <!--<div id="step-7" ng-switch-when="7" class="h100">
-        <header class="header bgf15353 clrfff posf ovh">
-            <div class="left cell top-photo">
-                <img class="ovh w100" ng-src="../app/style/images/logo.jpg">
-            </div>
-            <div class="left cell top-money font16px">$2000</div>
-            <div class="left cell top-name">
-                <div class="one font26px">TECUxRockbund</div>
-                <div class="two font14px">SHENG Michcle</div>
-            </div>
-            <div class="left cell top-zambia">
-                <div class="zambia">66</div>
-            </div>
-            <div class="right cell top-group t-icon-3" ng-click="toggerNavs()"></div>
-        </header>
-        <div class="content w100">
-            &lt;!&ndash; 代言人排行榜 &ndash;&gt;
-            <div class="panel-list ovh">
-                <div ng-repeat="person in personDatas track by person.id" class="w33 left person-panel borb1"
-                     ng-click="showPerson({'person': person, 'id': person.id}, {'step': 3})">
-                    <img class="w100 disb" ng-src="{{person.src}}">
-                    <ul class="clrfff clrf153 ovh">
-                        <li class="item-praise font12px left w50" ng-bind="person.praise"></li>
-                        <li class="item-tread font12px left w50" ng-bind="person.tread"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <footer class="footer bgf15353 clrfff posf">
-            <div class="left cell bot-person w33" ng-click="showRankingList({'step': 7})"></div>
-            <div class="left cell bot-cloud w33" ng-click="showRankingList({'step': 10})"></div>
-            <div class="left cell bot-ranking w33" ng-click="showRankingList({'step': 8})"></div>
-        </footer>
-    </div>-->
-    <!-- 商品排行榜 -->
-    <!--<div id="step-8" ng-switch-when="8" class="h100">
-        <header class="header bgf15353 clrfff posf ovh">
-            <div class="left cell top-photo">
-                <img class="ovh w100" ng-src="../app/style/images/logo.jpg">
-            </div>
-            <div class="left cell top-money font16px">$2000</div>
-            <div class="left cell top-name">
-                <div class="one font26px">TECUxRockbund</div>
-                <div class="two font14px">SHENG Michcle</div>
-            </div>
-            <div class="left cell top-zambia">
-                <div class="zambia">66</div>
-            </div>
-            <div class="right cell top-group t-icon-3" ng-click="toggerNavs()"></div>
-        </header>
-        <div class="content w100">
-            &lt;!&ndash; 商品排行榜 &ndash;&gt;
-            <div class="panel-list ovh commodity">
-                <div ng-repeat="commodity in commodityDatas track by commodity.id" class="ovh commodity-panel borb1">
-                    <a class="disb w50 left"
-                       ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {step: 2})">
-                        <img class="disb w100 ovh" ng-src="{{commodity.src}}">
-                        <span class="item-title font14px ovh" ng-bind="commodity.title"></span>
-                        <span class="item-price font12px item left w50 clrf153 fontb"
-                              ng-bind="commodity.price|currency:'￥'"></span>
-                        <span class="item-tread font12px item left w50" ng-bind="commodity.tread"></span>
-                    </a>
-                    <ul class="m50">
-                        <li class="font14px">代言人排行榜</li>
-                        <li ng-repeat="endorsement in commodity.endorsements">
-                            <span class="w33 font12px" ng-bind="endorsement.name"></span>
-                            <span class="w33 font12px" ng-bind="endorsement.message"></span>
-                            <span class="w33 font12px" ng-bind="endorsement.praise"></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <footer class="footer bgf15353 clrfff posf">
-            <div class="left cell bot-person w33" ng-click="showRankingList({'step': 7})"></div>
-            <div class="left cell bot-cloud w33" ng-click="showRankingList({'step': 10})"></div>
-            <div class="left cell bot-ranking w33" ng-click="showRankingList({'step': 8})"></div>
-        </footer>
-    </div>-->
-    <!-- 品牌列表 -->
-    <!--<div id="step-9" ng-switch-when="9" class="h100">
-        <header class="header bgf15353 clrfff posf ovh">
-            <div class="left cell top-photo">
-                <img class="ovh w100" ng-src="../app/style/images/logo.jpg">
-            </div>
-            <div class="left cell top-money font16px">$2000</div>
-            <div class="left cell top-name">
-                <div class="one font26px">TECUxRockbund</div>
-                <div class="two font14px">SHENG Michcle</div>
-            </div>
-            <div class="left cell top-zambia">
-                <div class="zambia">66</div>
-            </div>
-            <div class="right cell top-group t-icon-3" ng-click="toggerNavs()"></div>
-        </header>
-        <div class="content w100">
-
-            &lt;!&ndash; banner &ndash;&gt;
-            <a class="banner ovh w100 disb" ng-if="type==='index' || type==='brand'"
-               ng-click="showBrandList('brand', 1)">
-                <img class="w100 disb" ng-src="../app/style/images/banner.png"/>
-            </a>
-            &lt;!&ndash; 品牌列表 &ndash;&gt;
-            <div class="panel-list ovh brand">
-                <a class="ovh brand-panel borb1 disb w50 left"
-                   ng-repeat="commodity in commodityDatas track by commodity.id"
-                   ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {step: 2})">
-                    <img class="disb w100 ovh" ng-src="{{commodity.src}}">
-                    <span class="item-title font14px ovh" ng-bind="commodity.title"></span>
-                    <span class="item-price font12px item left w50 clrf153"
-                          ng-bind="commodity.price|currency:'￥'"></span>
-                    <span class="item-tread font12px item left w50" ng-bind="commodity.tread"></span>
-                </a>
-            </div>
-        </div>
-        <footer class="footer bgf15353 clrfff posf">
-            <div class="left cell bot-person w33" ng-click="showRankingList({'step': 7})"></div>
-            <div class="left cell bot-cloud w33" ng-click="showRankingList({'step': 10})"></div>
-            <div class="left cell bot-ranking w33" ng-click="showRankingList({'step': 8})"></div>
-        </footer>
-    </div>-->
-    <!-- 视频列表 -->
-    <!--<div id="step-10" ng-switch-when="10" class="h100">
-        <header class="header bgf15353 clrfff posf ovh">
-            <div class="left cell top-photo">
-                <img class="ovh w100" ng-src="../app/style/images/logo.jpg">
-            </div>
-            <div class="left cell top-money font16px">$2000</div>
-            <div class="left cell top-name">
-                <div class="one font26px">TECUxRockbund</div>
-                <div class="two font14px">SHENG Michcle</div>
-            </div>
-            <div class="left cell top-zambia">
-                <div class="zambia">66</div>
-            </div>
-            <div class="right cell top-group t-icon-3" ng-click="toggerNavs()"></div>
-        </header>
-        <div class="content w100">
-            视频列表
-        </div>
-        <footer class="footer bgf15353 clrfff posf">
-            <div class="left cell bot-person w33" ng-click="showRankingList({'step': 7})"></div>
-            <div class="left cell bot-cloud w33" ng-click="showRankingList({'step': 10})"></div>
-            <div class="left cell bot-ranking w33" ng-click="showRankingList({'step': 8})"></div>
-        </footer>
-    </div>-->
     <!-- 商品详情 -->
     <div id="step-2" ng-switch-when="2" class="h100">
         <header class="header header2 clrgray posf ovh borb1">
-            <div class="left cell w10 top-goback" ng-click="goBack({'step': 1, 'oldStep': 2})">
+            <!--<div class="left cell w10 top-goback" ng-click="entrance==='person'?goStep({'step':3}):showCommodityList()">-->
+            <div class="left cell w10 top-goback" ng-click="goStep({'step':entrance})">
                 <span></span>
             </div>
             <div class="left cell w80 top-racking-title font16px" ng-bind="'商品详情'"></div>
@@ -261,12 +116,11 @@
                 </div>
                 <div class="ovh basic-info borb1 bort1 bgfff">
                     <a class="disb"
-                       ng-click="showDetailsInfo({message: '商品详细介绍'}, {'step': 4})">
+                       ng-click="showDetailsInfo({message: '商品详细介绍'})">
                         <div class="info-title posr"><span class="title-text" ng-bind="commodityData.title"></span><em
                             class="icon-arrow icon-arrow-right posa"></em></div>
                         <div class="info-act font12px">92个精心设计的经典案例对各个知识点进行了充分阐释，理论与实践完美结合</div>
                     </a>
-
                     <div class="info-price borb1 clrf153 fontb" ng-bind="(commodityData.price||0)|currency:'￥'"></div>
                     <div class="info-item info-author borb1 font14px" ng-if="commodityData.author"><span
                         class="clrgray label disib">设计者</span><span class="padl1" ng-bind="commodityData.author"></span>
@@ -295,7 +149,7 @@
                          ng-style="{'width': (commodityDatas.length||0)*5+'rem', 'min-width': '100%'}">
                         <a class="marquee-item left disb" style="width: 5rem;"
                            ng-repeat="commodity in commodityDatas track by commodity.id"
-                           ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {step: 2})">
+                           ng-click="showDetails({'commodity': commodity, 'id': commodity.id})">
                             <img ng-src="{{commodity.src}}">
                         </a>
                     </div>
@@ -309,13 +163,13 @@
             </a>
             <a class="w33 cell left disb font15px bgyellow">加入购物车 </a>
             <a class="w33 cell left disb font15px bgf15353"
-               ng-click="submitOrder(commodityData, {'step': 6})">立即购买</a>
+               ng-click="submitOrder(commodityData)">立即购买</a>
         </footer>
     </div>
     <!-- 代言人详情 -->
     <div id="step-3" ng-switch-when="3" class="h100">
         <header class="header header2 clrgray posf ovh borb1">
-            <div class="left cell w10 top-goback" ng-click="goBack({'step': 1})">
+            <div class="left cell w10 top-goback" ng-click="showPersonList()">
                 <span></span>
             </div>
             <div class="left cell w80 top-racking-title font16px" ng-bind="'代言人'"></div>
@@ -327,7 +181,7 @@
             <!-- 代言人详情 -->
             <div class="details-list posr bgF1F1F5">
                 <a class="txc disb ovh borb1 bgfff posr person-item"
-                   ng-click="showPersonInfo({'message': '代言人详细介绍'}, {'step': 5})">
+                   ng-click="showPersonInfo({'message': '代言人详细介绍'})">
                     <img class="w50 left disb" ng-src="{{personData.src}}">
                     <ul class="m50 disb">
                         <li class="txc font20px person-name" ng-bind="personData.name"></li>
@@ -339,7 +193,7 @@
                 </a>
                 <a class="ovh brand-panel disb w50 left bort1 bgfff"
                    ng-repeat="commodity in commodityDatas track by commodity.id"
-                   ng-click="showDetails({'commodity': commodity, 'id': commodity.id},{step: 2})">
+                   ng-click="showDetails({'commodity': commodity, 'id': commodity.id}, {'entrance': 3})">
                     <img class="disb w100 ovh" ng-src="{{commodity.src}}">
                     <span class="item-title font14px ovh" ng-bind="commodity.title"></span>
                     <span class="item-price font12px item left w50 clrf153"
@@ -497,9 +351,140 @@
             <a class="w33 cell right disb font16px bgf15353" ng-click="nowBuy()" ng-bind="'确认支付'"></a>
         </footer>
     </div>
+    <!-- 登陆 -->
+    <div id="step-7" ng-switch-when="7" class="h100">
+        <header class="header header2 clrgray posf ovh borb1">
+            <div class="left cell w10 top-goback" ng-click="goIndex({'step': 1})">
+                <span></span>
+            </div>
+            <div class="left cell w80 top-racking-title font16px" ng-bind="'登陆'"></div>
+        </header>
+        <div class="content w100">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="signinInputEmail">Email</label>
+                    <div class="controls">
+                        <input type="text" id="signinInputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="signinInputPwd">Password</label>
+                    <div class="controls">
+                        <input type="password" id="signinInputPwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">登陆</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <a ng-click="gotoSignup()" ng-bind="'去注册'"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 注册 -->
+    <div id="step-8" ng-switch-when="8" class="h100">
+        <header class="header header2 clrgray posf ovh borb1">
+            <div class="left cell w10 top-goback" ng-click="goSignIn()">
+                <span></span>
+            </div>
+            <div class="left cell w80 top-racking-title font16px" ng-bind="'注册'"></div>
+        </header>
+        <div class="content w100">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="signupInputEmail">Email</label>
+                    <div class="controls">
+                        <input type="text" id="signupInputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="signupInputPwd">Password</label>
+                    <div class="controls">
+                        <input type="password" id="signupInputPwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="signupInputPwdRepeat">Password</label>
+                    <div class="controls">
+                        <input type="password" id="signupInputPwdRepeat" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">注册</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 购买成功 -->
+    <div id="step-9" ng-switch-when="9" class="h100">
+        <header class="header header2 clrgray posf ovh borb1">
+            <div class="left cell w10 top-goback" ng-click="goStep({'step': 3})">
+                <span></span>
+            </div>
+            <div class="left cell w80 top-racking-title font16px" ng-bind="'购买成功'"></div>
+        </header>
+        <div class="content w100">
+            <div class="txc">
+                支付成功！
+            </div>
+            <div>
+                <button ng-click="submitRepresent()">我要代言</button>
+                <button ng-click="goonBuy()">继续购买</button>
+            </div>
+        </div>
+    </div>
+    <!-- 代言 -->
+    <div id="step-10" ng-switch-when="10" class="h100">
+        <header class="header header2 clrgray posf ovh borb1">
+            <div class="left cell w10 top-goback" ng-click="showRankingList({'step': 1, 'tabType': 'commodity'})">
+                <span></span>
+            </div>
+            <div class="left cell w80 top-racking-title font16px" ng-bind="'我要代言'"></div>
+        </header>
+        <div class="content w100">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="message">我要留言</label>
+                    <div class="controls">
+                        <textarea id="message" placeholder="我想说！"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">提交</button>
+                        <button type="submit" class="btn" ng-click="showRankingList({'step': 1, 'tabType': 'commodity'})">返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 代言成功 -->
+    <div id="step-11" ng-switch-when="11" class="h100">
+        <header class="header header2 clrgray posf ovh borb1">
+            <div class="left cell w10 top-goback" ng-click="showRankingList({'step': 1, 'tabType': 'commodity'})">
+                <span></span>
+            </div>
+            <div class="left cell w80 top-racking-title font16px" ng-bind="'代言成功'"></div>
+        </header>
+        <div class="content w100">
+            <div class="txc">
+                支付成功！
+            </div>
+            <div>
+                <a ng-click="showRankingList({'step': 1, 'tabType': 'commodity'})"></a>
+            </div>
+        </div>
+    </div>
     <!-- 二级导航 -->
     <div class="header-nav bg0006 clrfff posf w100" ng-if="navSate">
-        <a class="w33 cell left disb font15px go-home" ng-click="showRankingList({'step': 1, 'tabType': 'index'})">
+        <a class="w33 cell left disb font15px go-home" ng-click="showIndex()">
             <em class="btm-act-icn disb"></em>
             <span class="font12px">首页</span>
         </a>
