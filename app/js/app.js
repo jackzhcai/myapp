@@ -17,10 +17,10 @@
         }).when('/main/', {
             redirectTo: '/main'
         }).when('/main', {
-            templateUrl: 'app/js/template/main/main.html',
+            templateUrl: '../app/js/template/main/main.html',
             controller: 'mainCtrol'
         }).when('/login', {
-            templateUrl: 'app/js/template/login/login.html',
+            templateUrl: '../app/js/template/login/login.html',
             controller: 'loginCtrol'
         }).when('/logout', {
             redirectTo: function () {
