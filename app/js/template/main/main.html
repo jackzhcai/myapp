@@ -15,7 +15,7 @@
             </div>
             <div class="right cell top-group t-icon-3" ng-click="toggerNavs()"></div>
         </header>
-        <div class="content w100">
+        <div class="content w100 bgfff">
             <!-- banner -->
             <a ng-if="tabType==='index'||tabType==='brand'" class="banner ovh w100 disb" ng-click="showBrandList('type')">
                 <img class="w100 disb" ng-src="../app/style/images/banner.png"/>
@@ -117,7 +117,7 @@
                 <div class="ovh basic-info borb1 bort1 bgfff">
                     <a class="disb"
                        ng-click="showDetailsInfo({message: '商品详细介绍'})">
-                        <div class="info-title posr"><span class="title-text" ng-bind="commodityData.title"></span><em
+                        <div class="info-title posr font16px"><span class="title-text" ng-bind="commodityData.title"></span><em
                             class="icon-arrow icon-arrow-right posa"></em></div>
                         <div class="info-act font12px">92个精心设计的经典案例对各个知识点进行了充分阐释，理论与实践完美结合</div>
                     </a>
@@ -177,9 +177,9 @@
                 <span></span>
             </div>
         </header>
-        <div class="content content-2 w100">
+        <div class="content content3 w100">
             <!-- 代言人详情 -->
-            <div class="details-list posr bgF1F1F5">
+            <div class="details-list posr bgF1F1F5 ovh">
                 <a class="txc disb ovh borb1 bgfff posr person-item"
                    ng-click="showPersonInfo({'message': '代言人详细介绍'})">
                     <img class="w50 left disb" ng-src="{{personData.src}}">
@@ -200,6 +200,7 @@
                           ng-bind="commodity.price|currency:'￥'"></span>
                     <span class="item-tread font12px item left w50" ng-bind="commodity.tread"></span>
                 </a>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
@@ -250,7 +251,7 @@
                 <div class="order-addr posr step1 bgfffaf3">
                     <div class="m step1-in">
                         <a ng-click="showAddr()" class=" disb w100 h100">
-                            <div class="mt_new ovh ">
+                            <div class="mt_new ovh font16px">
                                 <div class="s1-name left">
                                     <i class="left disib"></i><span class="disib">蔡忠华</span>
                                 </div>
@@ -258,7 +259,7 @@
                                     <i class="left disib"></i><span class="disib">150****5901</span>
                                 </div>
                             </div>
-                            <div class="mc step1-in-con">
+                            <div class="mc step1-in-con font12px">
                                 <i class="tacitly-lable clrfff font11px">默认</i>
                                 上海浦东新区北蔡镇严中路269弄37号602室
                             </div>
@@ -274,8 +275,8 @@
                         <img class="w100" src="../app/style/images/wxpay_enable_v1.png" alt="微信支付">
                     </div>
                     <div class="cs-list-content left">
-                        <div class="cs-list-title" title="微信支付">微信支付</div>
-                        <div class="cs-list-brief" title="推荐安装微信6.0.2及以上版本使用"> 推荐安装微信6.0.2及以上版本使用</div>
+                        <div class="cs-list-title font13px" title="微信支付">微信支付</div>
+                        <div class="cs-list-brief font12px" title="推荐安装微信6.0.2及以上版本使用"> 推荐安装微信6.0.2及以上版本使用</div>
                     </div>
                 </div>
                 <!-- list -->
@@ -302,7 +303,7 @@
                                     </a>
                                     <div class="cart-product-cell-2 posr">
                                         <a class="font13px disb cart-product-name" ng-click="">美国旅游地图（中英文对照）</a>
-                                        <div class="font13px shp-cart-item-price clrf153">¥10.90</div>
+                                        <div class="font12px shp-cart-item-price clrf153">¥10.90</div>
                                         <div class="wastebin-container posa">
                                             <div class="wastebin" ng-click="">
                                                 <i class="wastebin-up"></i>
@@ -359,29 +360,32 @@
             </div>
             <div class="left cell w80 top-racking-title font16px" ng-bind="'登陆'"></div>
         </header>
-        <div class="content w100">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label" for="signinInputEmail">Email</label>
-                    <div class="controls">
-                        <input type="text" id="signinInputEmail" placeholder="Email">
+        <div class="content content2 w100">
+            <div class="taba bgfff">
+                <div class="active item w50">
+                    <a class="react clrf153 txc disb">太酷账号登录</a>
+                </div>
+                <div class="slide w50 bgf15353"></div>
+            </div>
+            <form class="form-signin">
+                <div class="list-in bgfff borb1 bort1">
+                    <div class="dd-padding borb1">
+                        <input class="input-weak w100 disb font13px" type="text" placeholder="账户名/手机号/Email" name="email" value="" required="">
+                    </div>
+                    <div class="dd-padding">
+                        <input class="input-weak w100 disb font13px" type="password" placeholder="请输入您的密码" name="password" required="">
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label" for="signinInputPwd">Password</label>
-                    <div class="controls">
-                        <input type="password" id="signinInputPwd" placeholder="Password">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="submit" class="btn">登陆</button>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        <a ng-click="gotoSignup()" ng-bind="'去注册'"></a>
-                    </div>
+                <div class="btn-wrapper">
+                    <button type="submit" class="bgf15353 font16px btn-larger clrfff">登录</button>
+                    <ul class="subline ovh">
+                        <li class="left">
+                            <a class="clrf153 font13px" ng-click="gotoSignup()">立即注册</a>
+                        </li>
+                        <li class="right">
+                            <a class="clrf153 font13px" ng-click="findPwd()">找回密码</a>
+                        </li>
+                    </ul>
                 </div>
             </form>
         </div>
@@ -389,35 +393,32 @@
     <!-- 注册 -->
     <div id="step-8" ng-switch-when="8" class="h100">
         <header class="header header2 clrgray posf ovh borb1">
-            <div class="left cell w10 top-goback" ng-click="goSignIn()">
+            <div class="left cell w10 top-goback" ng-click="showIndex()">
                 <span></span>
             </div>
             <div class="left cell w80 top-racking-title font16px" ng-bind="'注册'"></div>
         </header>
-        <div class="content w100">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label" for="signupInputEmail">Email</label>
-                    <div class="controls">
-                        <input type="text" id="signupInputEmail" placeholder="Email">
+        <div class="content content2 w100">
+            <div class="taba bgfff">
+                <div class="active item w50">
+                    <a class="react clrf153 txc disb">太酷账号注册</a>
+                </div>
+                <div class="slide w50 bgf15353"></div>
+            </div>
+            <form class="form-signup">
+                <div class="list-in bgfff borb1 bort1">
+                    <div class="dd-padding borb1">
+                        <input class="input-weak w100 disb" type="text" placeholder="账户名/手机号/Email" name="email" required="">
+                    </div>
+                    <div class="dd-padding borb1">
+                        <input class="input-weak w100 disb" type="password" placeholder="请输入您的密码" name="password" required="">
+                    </div>
+                    <div class="dd-padding">
+                        <input class="input-weak w100 disb" type="password" placeholder="请再次输入您的密码" name="password" required="">
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label" for="signupInputPwd">Password</label>
-                    <div class="controls">
-                        <input type="password" id="signupInputPwd" placeholder="Password">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="signupInputPwdRepeat">Password</label>
-                    <div class="controls">
-                        <input type="password" id="signupInputPwdRepeat" placeholder="Password">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="submit" class="btn">注册</button>
-                    </div>
+                <div class="btn-wrapper">
+                    <button type="submit" class="bgf15353 font16px btn-larger clrfff">注册</button>
                 </div>
             </form>
         </div>

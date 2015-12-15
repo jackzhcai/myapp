@@ -1,7 +1,7 @@
 /* base */
 * {
-    padding: 0em;
-    margin: 0em;
+    padding: 0rem;
+    margin: 0rem;
     box-sizing: border-box;
 }
 
@@ -61,6 +61,9 @@ body {
 
 .bgfffaf3 {
     background-color: #fffaf3;
+}
+.bgF0EFED{
+    background-color: #F0EFED;
 }
 
 .clrfff {
@@ -128,7 +131,7 @@ body {
 }
 
 .padl1 {
-    padding-left: 1em;
+    padding-left: 1rem;
 }
 
 .ovh {
@@ -231,6 +234,12 @@ body {
     font-size: 32px;
 }
 
+.clearfix{
+    clear: both;
+    font-size: 0px;
+    height: 0px;
+    line-height: 0px;
+}
 .bort1 {
     border-top: 1px solid #E8E5E5;
 }
@@ -293,6 +302,65 @@ body {
         width: 320px;
     }
 }
+/*  */
+.taba{
+    display: block;
+    position: relative;
+    border-bottom: 3px solid #DDD8CE;
+}
+.taba .item {
+    display: inline-block;
+    -webkit-box-flex: 1;
+}
+
+a.react, label.react {
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.slide{
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    z-index: 1;
+    height: 3px;
+}
+.list-in, .btn-wrapper, .subline{
+    margin-top: 0.5rem;
+}
+.btn-wrapper,.list-in{
+    padding: 0 0.5rem;
+}
+.list-in .dd-padding{
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    padding: 0.4rem 0.3rem;
+}
+.list-in .dd-padding:last-child{
+    border-bottom: none;
+}
+input.input-weak, textarea.input-weak {
+    border: 0;
+    height: 1.6rem;
+    border-radius: .2rem;
+    padding: 0;
+    text-indent: 0.3rem;
+}
+input.input-weak:focus{
+    background: none repeat scroll 0% 0% #ECECEC;
+    outline: 0px none;
+}
+.btn-larger {
+    height: 2.8rem;
+    line-height: 2.8rem;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0.2rem;
+}
+.subline{
+    display: block;
+}
 
 /* header && footer && content base*/
 .header, .footer {
@@ -302,11 +370,11 @@ body {
 }
 
 .header {
-    top: 0em;
+    top: 0;
 }
 
 .footer {
-    bottom: 0em;
+    bottom: 0;
 }
 
 .header2 {
@@ -369,6 +437,9 @@ body {
     text-align: center;
     background-repeat: no-repeat;
 }
+.header-nav .cell span, .shopping-cart span{
+    line-height: 0.8rem;
+}
 
 .header-nav {
     top: 2.5rem;
@@ -382,8 +453,8 @@ body {
 }
 
 .top-name .one {
-    line-height: 1.7rem;
-    height: 1.7rem;
+    line-height: 1.6rem;
+    height: 1.6rem;
 }
 
 .top-name .two {
@@ -393,18 +464,18 @@ body {
 
 .top-zambia {
     background-image: url(../images/t-icon-2.png);
-    background-size: 1.2em;
+    background-size: 1.2rem;
     background-position: left center;
 }
 
 .zambia {
-    padding-left: 1em;
+    padding-left: 1rem;
     font-weight: bold;
 }
 
 .top-group {
     background-image: url(../images/t-icon-3.png);
-    background-size: 2em;
+    background-size: 2rem;
     background-position: center center;
 }
 
@@ -423,28 +494,28 @@ body {
 
 .bot-person, .bot-cloud, .bot-ranking {
     background-position: center center;
-    background-size: 1em;
+    background-size: 1rem;
 }
 
 /* index */
 .logo {
     width: 50%;
     height: auto;
-    margin: 0.6em;
+    margin: 0.6rem;
 }
 
 .cname {
-    line-height: 2.2em;
+    line-height: 2rem;
     font-weight: bold;
 }
 
 .cn {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 .description {
-    padding: 0 1em;
-    text-indent: 2em;
+    padding: 0 1rem;
+    text-indent: 2rem;
 }
 
 /* content */
@@ -488,11 +559,11 @@ body {
 .item-praise, .item-tread {
     background-position: left center;
     background-repeat: no-repeat;
-    background-size: 0.8em;
+    background-size: 0.8rem;
 }
 
 .item-praise, .item-tread {
-    padding-left: 0.8em;
+    padding-left: 0.8rem;
 }*/
 .item-praise:before, .item-tread:before {
     content: "$";
@@ -515,12 +586,11 @@ body {
 }
 
 .info-title {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
 }
 
 .info-title .title-text {
     display: inline-block;
-    font-size: 16px;
     margin-right: 30px;
 }
 
@@ -545,7 +615,7 @@ body {
 }
 
 .info-price {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-family: 'Helvetica';
 }
 
@@ -555,8 +625,8 @@ body {
 }
 
 .info-item {
-    line-height: 2em;
-    height: 2em;
+    line-height: 2rem;
+    height: 2rem;
 }
 
 .info-item .label {
@@ -614,8 +684,6 @@ body {
 
 .shopping-cart span, .go-home span, .my-tecu span {
     display: block;
-    line-height: 1em;
-    height: 1em;
     text-align: center;
 }
 
@@ -651,15 +719,18 @@ body {
 .content2 {
     padding-bottom: 10px;
 }
+.content3 {
+    padding-bottom: 0px;
+}
 
 /**/
 .field-item {
-    padding-bottom: 0.2em;
+    padding-bottom: 0.2rem
 }
 
 .lays-panel {
     height: 100%;
-    padding: 0.2em 0;
+    padding: 0.2rem 0;
 }
 
 .view-marquee {
@@ -676,7 +747,7 @@ body {
 }
 
 .marquee-item {
-    padding: 0 0.1em;
+    padding: 0 0.1rem
 }
 
 .marquee-item img {
@@ -685,7 +756,7 @@ body {
 }
 
 .lays-panel {
-    padding: 0.6em 0 0.2em;
+    padding: 0.6rem 0 0.2rem;
 }
 
 /* 订单页 */
@@ -694,53 +765,51 @@ body {
 }
 .order-addr {
     top: 0;
-    padding: 1.2em .625em;
+    padding: 1rem .625rem;
 }
 
 .s1-name {
-    margin-right: 3em;
+    margin-right: 3rem;
 }
 
 .s1-name, .s1-phone{
-    height: 1em;
-    line-height: 1em;
-    font-size: 1em;
+    height: 1rem;
+    line-height: 1rem;
 }
 .s1-name span, .s1-phone span {
     vertical-align: baseline;
 }
 .step1-in .mt_new {
-    padding-bottom: 0.7em;
+    padding-bottom: 0.4rem;
 }
 
 .step1-in .mc {
-    font-size: .8125em;
     color: #686868;
-    line-height: 1.325em;
+    line-height: 1.2rem;
 }
 
 .step1-in-con {
-    padding-right: 3em;
+    padding-right: 3rem;
 }
 
 .s1-name i {
-    width: 1em;
-    height: 1em;
-    margin-right: .375em;
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-right: .3rem;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAdCAIAAAA2M5tmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2QkM2OTNFQ0IxQkUxMUU0QkI1RkJGQUJDM0UyOTY0MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2QkM2OTNFREIxQkUxMUU0QkI1RkJGQUJDM0UyOTY0MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZCQzY5M0VBQjFCRTExRTRCQjVGQkZBQkMzRTI5NjQzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZCQzY5M0VCQjFCRTExRTRCQjVGQkZBQkMzRTI5NjQzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+zhELmQAABGJJREFUeNqMVktrE1EUnnuTeSS2CkVt6yPYhbZFV7WCdSEiPsFFpQhGAq5ECsWFWKqiWHBhUTdC6Q8QcSFUN6Ki4guxoLUKFVtriaDW1lc1MU0mM5m5fidT25lk0noJYeY753xzH+c75zIhhOQ7hLCGhsz+fmtkxB4fF8kkMLZwIa+uDqxZIzc2BurrJcZ8Q5kPqRDmkyfZ3l77yxep9ODLlqktLfLmzcXUhaT29++ZS5es4WE8Yy5B/BoaeFUVW7SIPpdI2BMTuYGB3NAQ1kE+dXWhI0f40qUlSa1379JdXeLPHx6JKLt3K9u3zzFT4/5949Yt++NHVl4ePn48UFvrQ2q9f5/u7BTZrLxpk9baykIhab4hdF3v6TGfPWOqGu7sDKxe7SEVk5OpY8dwGvKWLaG2Nk+oZWGx4utX8q6sxIZIgYDbnunuNh89whmWXbzIKiqABKcNPT3E2NTkYbRt4+bN7I0b2JDZpZWXq3v3Knv2SJw7CIVks2ZfH0jCp05Nk+b6+3OvX/PKSu3wYdeeGekLF3KvXmFRSizGa2roKx8+GPfu6Zcv5wYHw+3tkqI4vgi04nGQgCrY2Ij8EakTJxItLTQj10h3dwPUr10Ttu3G8QoQJji4YYQDTHV04Jnj+JDedNzNzbPbODJiPnyo7Nyp7ttXmIaMAYQJDnCbgREOEmt0FIQcmqFdwPa70+XuXSxNPXCg1LmTSVGM27fdoENiPn/Orbdv6R0b4T7wN2+Ca9eyBQtKkcIUXLfO0cgs6fr1TrJze2yMNLd8uUdXP38WiMRHpkuW2L9+eZAVKyj282c+Uyk8E9E0JPa8mc9k2ROVJwEhF4ZB76rq+WZNDVYxNyktMxLxkOZJQMhZOExPU1Nus7xxIxWOly9LMcIEB4jFM/c8CQg5X7yYNuLHD7dZ2bYNWwaF2N++FTMChAkOyo4dHjxPAkLOV62i93jcE6cooaNHRSo1dfIkUs+z6tFRgDDBYUZR06R5EhByZIaTXB7z+Di0iFIifv82nz51m/AKECY4wM1jevGCEguEdiqV2L8fCrPGxhzBmYODyVgsEY3qV6/ayWSxTAHCBAe4wdmBEQ4SUNkox0hjagmShP5Bq4vHM+fOASzr6lKjUdSkYplSoYpG4cDKyuBs5VfthIMKIJUvtBpJls3Hj3GmVOU0DRW3IF18kj8SCZ85I4VCCEGDQThIiCrf5Wjo169j8slDh6yJCchJ/PeAM0IQSCWtt9cBpwut2twc3LAB9T9z/rwwTem/B5wpZHIS4eq/Ojfbo9Cd0mfPokZgy7SDB9FX5mVEF0EOQJfoqeHTp2dk6emm4NXRcPr6KDMaGpRdu/Dvr6iBAePOHfzT4TQ1aW1tbqEXXSaQUg8e6FeuOH0JhSdYV4d7g+Q010wGN4zc8DBKkdOvtFhM3rq1IEOY77VHZDIowGCHwP2PvqoKXLgb+HZyVvIu5Ujr0yeaF5STTtM7ikV1Nc195co5ov4KMADDTN8SvchSagAAAABJRU5ErkJggg==) no-repeat;
-    background-size: 1em 1em;
+    background-size: 0.85rem 0.85rem;
 }
 
 .s1-phone i {
-    width: .7em;
-    height: 1em;
-    margin-right: .43em;
+    width: .6rem;
+    height: 1rem;
+    margin-right: .2rem;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAbCAIAAAD+o0jIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFRTM2RkZFQkIxQzAxMUU0OEQzRjkyQkQ1ODcwQkI1OCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFRTM2RkZFQ0IxQzAxMUU0OEQzRjkyQkQ1ODcwQkI1OCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkVFMzZGRkU5QjFDMDExRTQ4RDNGOTJCRDU4NzBCQjU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkVFMzZGRkVBQjFDMDExRTQ4RDNGOTJCRDU4NzBCQjU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+NnXMsQAAAN5JREFUeNpi/P/r149Fi34fOPD/+3cGQoCRk5PVwYEjLo7lx+LFv7ZvZyAOAI0GKWZkZPwUG/v/2zfuri5mJSWC2v7eu/e1rIyRm5sJqAfIJ0YPXNn/r19Z4EJfq6r+3rqFT4+aGndbG4SN0AbUw7dmDR5tn0JC4GwmBrLAqLZRbSNbGyK/MWtpIecoLNlUSwuLNu6mJnJsw5WRsWZ5FkYenv9fvvy9dg3ZDbhKB6AyUGnJw8P4ff78X1u2kBQe7EFBjP9///65evWvPXv+f/xIuFTm42NzcWEPCwMIMAB2R1SoPBR7lQAAAABJRU5ErkJggg==) no-repeat;
-    background-size: .64em 1em;
+    background-size: .55rem 0.9rem;
 }
 
 .tacitly-lable {
-    padding: .05em .6em;
+    padding: .02rem .3rem;
     background: #f15353;
     border-radius: 3px;
     font-style: normal;
@@ -769,13 +838,13 @@ body {
 }
 
 .s-point {
-    right: .625em;
+    right: .625rem;
     top: 50%;
-    width: .5625em;
-    height: 1em;
-    margin-top: -0.5em;
+    width: .5625rem;
+    height: 1rem;
+    margin-top: -0.5rem;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAgCAYAAADwvkPPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NkFEMDVDREIxQjcxMUU0QTRDOEI2QzhGRTQyOEQ5OCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NkFEMDVDRUIxQjcxMUU0QTRDOEI2QzhGRTQyOEQ5OCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU2QUQwNUNCQjFCNzExRTRBNEM4QjZDOEZFNDI4RDk4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU2QUQwNUNDQjFCNzExRTRBNEM4QjZDOEZFNDI4RDk4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+HcRu+AAAAMZJREFUeNqs1sENgzAMBVDz6WDZowc6WA9w6BzJYlXaUBdBG8Cx/aVcQDwcG6R0McaeiG70yRhCeJIyYOjOa0op9RZsnasFLNj4Xg8PENyjwQOct+kFLj3zADcDsIK/0zSBqF3Ugti7oQFxVHYriLOmtoCQjFwKQvpBSsAu59z0//GDE0PflBcMIMfAq6rSBnhB4sokkAiTQqdYC3SItUK7mAaqYlroD7NAG8wKLZgHNGNe0PqsYYZq01RDJRc+a5DHkeolwADN0av3Y1+XBQAAAABJRU5ErkJggg==) no-repeat;
-    background-size: .5625em 1em;
+    background-size: .5625rem 1rem;
 }
 
 .order-shop-group {
@@ -819,7 +888,7 @@ body {
     padding: 10px 0;
 }
 .total-money{
-    padding-left: 1em;
+    padding-left: 1rem;
 }
 .cart-photo-thumb{
     width: 79px;
@@ -882,7 +951,7 @@ body {
     -webkit-transform: rotate(45deg);
 }
 .cs-list-thumb{
-    width: 4em;
+    width: 3.5rem;
     margin-right: 10px;
 }
 .order-pay{
@@ -890,12 +959,11 @@ body {
     margin-top: 10px;
 }
 .cs-list-title{
-    line-height: 1.2rem;
-    height: 1.2rem;
+    line-height: 1rem;
+    height: 1rem;
 }
 .cs-list-brief{
     line-height: 1rem;
     height: 1rem;
     color: #686868;
-    font-size: .8125em;
 }

@@ -427,7 +427,7 @@
          * @description 查看注册页
          */
         $scope.gotoSignup = function(){
-            $scope.$emit("changeScene", {'step': 7});
+            $scope.$emit("changeScene", {'step': 8});
         }
 
         /**
